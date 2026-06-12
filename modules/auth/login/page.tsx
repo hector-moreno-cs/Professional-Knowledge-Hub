@@ -1,4 +1,7 @@
 import { Metadata } from "next";
+import { redirect } from "next/navigation";
+import { auth } from "@/modules/auth/lib/auth";
+
 import { LoginForm } from "./login-form";
 
 export const metadata: Metadata = {
@@ -6,8 +9,13 @@ export const metadata: Metadata = {
   description: "Knowledge Forum. Personal Project.",
 };
 
+export const LoginPage = async () => {
+  const session = await auth();
 
-export const LoginPage = () => {
+  if (session) {
+    redirect("/dashboard");
+  }
+
   return (
     <main className="relative flex min-h-screen items-center justify-center overflow-hidden bg-slate-950">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,#1e293b_0%,#020617_55%)]" />
@@ -29,4 +37,4 @@ export const LoginPage = () => {
       </section>
     </main>
   );
-}
+};
