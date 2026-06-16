@@ -1,7 +1,4 @@
 import { Metadata } from "next";
-import { redirect } from "next/navigation";
-import { auth } from "@/modules/auth/lib/auth";
-
 import { LoginForm } from "./login-form";
 
 export const metadata: Metadata = {
@@ -10,11 +7,6 @@ export const metadata: Metadata = {
 };
 
 export const LoginPage = async () => {
-  const session = await auth();
-
-  if (session) {
-    redirect("/dashboard");
-  }
 
   return (
     <main className="relative flex min-h-screen items-center justify-center overflow-hidden bg-slate-950">

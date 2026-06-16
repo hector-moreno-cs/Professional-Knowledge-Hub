@@ -17,6 +17,10 @@ const users = [
 ];
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
+  session: {
+    strategy: "jwt",
+    maxAge: 30,
+  },
   providers: [
     Credentials({
       credentials: {

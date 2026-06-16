@@ -14,7 +14,7 @@ export const LoginForm = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (
-    event: React.FormEvent<HTMLFormElement>
+    event: React.SubmitEvent<HTMLFormElement>
   ) => {
     event.preventDefault();
 
